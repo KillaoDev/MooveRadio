@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <section class="span12 contenu article">
+            <h3 class="titre main">{{ 'mr.user.registration.title'|trans }}</h3>
+
+            {{ form(form) }}
+        </section>
+    </div>
+{% endblock %}

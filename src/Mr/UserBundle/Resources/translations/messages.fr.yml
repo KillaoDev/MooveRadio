@@ -1,0 +1,46 @@
+mr:
+    user:
+        registration:
+            title: Inscription
+            email:
+                first: Adresse e-mail
+                second: Confirmation
+                mismatch: Les addresses e-mail sont différentes
+            birthdate:
+                label: Date de naissance
+            city:
+                label: Ville
+            gender:
+                label: Genre
+                male: Homme
+                female: Femme
+                undefined: Inconnu
+            newsletter:
+                label: Newsletter
+            submit: S'inscrire
+        team:
+            name:
+                label: Nom
+            number:
+                label: Ordre
+            userteam:
+                label: Utilisateurs
+            submit: Envoyer
+            list:
+                number: Ordre
+                name: Nom
+                users: Utilisateurs
+            actions:
+                title: Actions
+                create: Créer
+                update: Modifier
+                delete: Supprimer
+        userteam:
+            title:
+                label: Titre
+            content:
+                label: Description
+            user:
+                label: Utilisateur
+
+fos_user.password.mismatch: Les mots de passe sont différents

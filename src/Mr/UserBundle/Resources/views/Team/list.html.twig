@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <ul>
+        {% for team in teams %}
+            <li>
+                {{ team.name }}
+                <ul>
+                    {% for userteam in team.userteam(app.request.locale) %}
+                        <li>
+                            <ul>
+                                <li>{{ userteam.user.username }}</li>
+                                <li>{{ userteam.title }}</li>
+                                <li>{{ userteam.content }}</li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

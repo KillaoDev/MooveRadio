@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <ul>
+        {% for news in newsList %}
+            <li>
+                {{ news.date|date('d/m/Y') }}
+                <a href="{{ path('mr_news_read', {'canonical': news.canonical}) }}">{{ news.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

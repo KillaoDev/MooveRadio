@@ -1,0 +1,15 @@
+mr:
+    page:
+        home:
+            listen:
+                title: Ecoutez-nous
+                player: Player
+            slider:
+                first:
+                    alt: ""
+                    title: Bienvenue sur MooveRadio
+                    description: Bonne écoute sur notre site, retrouvez chaque semaine des DJ's en live ainsi que des émissions de dingue ! <br /> Plus d'infos sur notre calendrier...
+                second:
+                    alt: ""
+                    title: Joue gratuitement à la bêta de Prohibition 1933 !
+                    description: ""

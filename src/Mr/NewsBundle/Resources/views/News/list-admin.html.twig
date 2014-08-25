@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>{{ 'mr.news.admin.list.date'|trans }}</th>
+                <th>{{ 'mr.news.admin.list.title'|trans }}</th>
+                <th>{{ 'mr.news.admin.list.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in newsList %}
+            <tr>
+                <td>{{ news.date|date('d/m/Y') }}</td>
+                <td><a href="{{ path('mr_news_read', {'canonical': news.canonical}) }}">{{ news.title }}</a></td>
+                <td>
+                    <a href="{{ path('mr_news_update', {'canonical': news.canonical}) }}">Modifier</a>
+                    <a href="{{ path('mr_news_delete', {'canonical': news.canonical}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{{ path('mr_news_create') }}">Créer</a></p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Dédicaces</h1>
+
+    {% for message in messages %}
+        <div>
+            <h3>{{ message.title }} - <a href="{{ path('mr_book_delete', {'messageID': message.id}) }}">Supprimer</a>
+            </h3>
+            <h6>{{ message.date|date('d/m/Y') }}</h6>
+
+            <p>
+                {{ message.content }}
+            </p>
+        </div>
+    {% endfor %}
+
+    {% set pageMax = max((nbMessages / 50)|round(0, 'ceil'), 1) %}
+    {% for i in 1..pageMax %}
+        <a href="{{ path('mr_book_admin_list_page', {'page': i}) }}">{{ i }}</a>
+    {% endfor %}
+{% endblock %}

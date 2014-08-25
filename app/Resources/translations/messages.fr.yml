@@ -1,0 +1,39 @@
+base:
+    title: Mooveradio - Suivez le Moovement !
+    header:
+        logo:
+            alt: ""
+        title:
+            first: Electro - House - Trance - Dubstep
+            second: Suivez le Moovement !
+        social:
+            alt: Social
+    nav:
+        player: Player
+        book: Dédicaces
+        chat: Chat
+        news: News
+        others: Autres
+        team: Equipe
+        privacy: Mentions légales
+        schedule: Calendrier
+    footer:
+        code: Code by Killao and Stombaker
+        sitemap:
+            title: Plan du site
+            home: Accueil
+            book: Dédicaces
+            chat: Chat
+            news: News
+            team: Equipe
+            privacy: Mentions légales
+            schedule: Calendrier
+        partners: Partenaires
+        social:
+            title: Social
+            facebook: Facebook
+            twitter: Twitter
+
+lang:
+    en: anglais
+    fr: français

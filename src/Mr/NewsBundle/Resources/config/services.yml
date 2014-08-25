@@ -1,0 +1,21 @@
+parameters:
+#    mr_news.example.class: Mr\NewsBundle\Example
+
+services:
+    mr_news.news.form.type:
+        class: Mr\NewsBundle\Form\Type\NewsType
+        tags:
+            - { name: form.type, alias: mr_news_news }
+
+    mr_news.comment.form.type:
+        class: Mr\NewsBundle\Form\Type\CommentType
+        tags:
+            - { name: form.type, alias: mr_news_comment }
+
+    mr_news.delete.form.type:
+        class: Mr\NewsBundle\Form\Type\DeleteType
+        tags:
+            - { name: form.type, alias: mr_news_delete }
+
+    mr_news.canonicalizer:
+        class: Mr\NewsBundle\Service\Canonicalizer

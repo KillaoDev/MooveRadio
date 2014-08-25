@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ news.title }}</h1>
+    <h5>{{ news.date|date('d/m/Y') }}</h5>
+    <p>{{ news.content|nl2br }}</p>
+
+    <p>
+        <a href="{{ path('mr_news_update', {'canonical': news.canonical}) }}">Modifier</a>
+        <a href="{{ path('mr_news_delete', {'canonical': news.canonical}) }}">Supprimer</a>
+    </p>
+{% endblock %}

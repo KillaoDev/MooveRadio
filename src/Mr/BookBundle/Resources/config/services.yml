@@ -1,0 +1,13 @@
+parameters:
+#    mr_book.example.class: Mr\BookBundle\Example
+
+services:
+    mr_book.message.form.type:
+        class: Mr\BookBundle\Form\Type\MessageType
+        tags:
+            - { name: form.type, alias: mr_book_message }
+
+    mr_book.delete.form.type:
+        class: Mr\BookBundle\Form\Type\DeleteType
+        tags:
+            - { name: form.type, alias: mr_book_delete }

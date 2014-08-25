@@ -1,0 +1,18 @@
+services:
+    mr_user.registration.form.type:
+        class: Mr\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: mr_user_registration }
+    mr_user.team.form.type:
+        class: Mr\UserBundle\Form\Type\TeamType
+        tags:
+            - { name: form.type, alias: mr_user_team }
+    mr_user.userteam.form.type:
+        class: Mr\UserBundle\Form\Type\UserTeamType
+        tags:
+            - { name: form.type, alias: mr_user_userteam }
+    mr_user.delete.form.type:
+        class: Mr\UserBundle\Form\Type\DeleteType
+        tags:
+            - { name: form.type, alias: mr_user_delete }

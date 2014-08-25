@@ -1,0 +1,24 @@
+mr_user_team_show:
+    path:     /team
+    defaults: { _controller: MrUserBundle:Team:show }
+    methods: [GET]
+
+mr_user_team_list:
+    path:     /admin/team/list
+    defaults: { _controller: MrUserBundle:Team:list }
+    methods: [GET]
+
+mr_user_team_create:
+    path:     /admin/team/create
+    defaults: { _controller: MrUserBundle:Team:create }
+    methods: [GET, POST]
+
+mr_user_team_update:
+    path:     /admin/team/update/{teamid}
+    defaults: { _controller: MrUserBundle:Team:update }
+    methods: [GET, POST]
+
+mr_user_team_delete:
+    path:     /admin/team/delete/{teamid}
+    defaults: { _controller: MrUserBundle:Team:delete }
+    methods: [GET, POST]

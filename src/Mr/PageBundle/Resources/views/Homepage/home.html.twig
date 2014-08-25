@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <section class="spanplay contenu inline left">
+            <h3 class="titre main">{{ 'mr.page.home.listen.title'|trans }}</h3>
+            <img src="{{ asset('img/player/play.jpg') }}" alt="{{ 'mr.page.home.listen.player' }}"
+                 class="butplay player-open" />
+            <ul class="hcenter otherplay">
+                <li class="inline">
+                    <a href="http://listen.radionomy.com/mooveradio.m3u">
+                        <img src="{{ asset('img/player/itunes.jpg') }}" alt="iTunes" />
+                    </a>
+                </li>
+                <li class="inline">
+                    <a href="http://listen.radionomy.com/mooveradio.m3u">
+                        <img src="{{ asset('img/player/wm.jpg') }}" alt="Windows Media Player" />
+                    </a>
+                </li>
+                <li class="inline">
+                    <a href="https://itunes.apple.com/be/app/radionomy/id465042448?mt=8">
+                        <img src="{{ asset('img/player/smartphone.jpg') }}" alt="Smartphone" />
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="inline right">
+            <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <img src="{{ asset('img/slider/1.png') }}" alt="{{ 'mr.page.home.slider.first.alt'|trans }}" />
+
+                        <div class="carousel-caption">
+                            <h4>{{ 'mr.page.home.slider.first.title'|trans }}</h4>
+
+                            <p>{{ 'mr.page.home.slider.first.description'|trans|raw }}</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{{ asset('img/slider/2.png') }}" alt="{{ 'mr.page.home.slider.second.alt'|trans }}" />
+
+                        <div class="carousel-caption">
+                            <h4>{{ 'mr.page.home.slider.second.title'|trans }}</h4>
+
+                            <p>{{ 'mr.page.home.slider.second.description'|trans|raw }}</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+        </section>
+    </div>
+{% endblock %}

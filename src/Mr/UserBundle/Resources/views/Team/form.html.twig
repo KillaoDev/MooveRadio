@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        // TODO: export into external file
+        $(function () {
+            var $collectionHolder = $('#mr_user_team_userteam');
+            var $addUserteamLink = $('<span class="userteam-add-link">+</span>');
+            var $removeUserteamLink = $('<span class="userteam-remove-link">-</span>');
+
+            $collectionHolder.append($addUserteamLink);
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $collectionHolder.children('div').each(function() {
+                $(this).addClass('userteam-block')
+                       .append($removeUserteamLink.clone());
+            });
+
+            $addUserteamLink.on('click', function (e) {
+                e.preventDefault();
+                var prototype = $collectionHolder.data('prototype');
+                var index = $collectionHolder.data('index');
+                var $newForm = $('<div class="userteam-block"></div>')
+                    .append(prototype.replace(/__name__/g, index))
+                    .append($removeUserteamLink.clone());
+                $collectionHolder.data('index', index + 1);
+                $addUserteamLink.before($newForm);
+            });
+
+            $collectionHolder.on('click', '.userteam-remove-link', function(e){
+                e.preventDefault();
+                $(this).parents('.userteam-block').remove()
+            })
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="Dubstep, Electro, House, Trance, WebRadio, MooveRadio, Radionomy, Belgique" />
+        <meta name="description" content="WebRadio full electro/house/dubstep/trance 24h/24. Suivez le Moovement !" />
+        <meta name="author" content="Killao &amp; Stombaker" />
+
+        <title>{% block title %}{{ 'base.title'|trans }}{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="{{ path('homepage') }}">
+                    <img src="{{ asset('img/mr.png') }}" alt="{{ 'base.header.logo.alt' }}" class="logo inline left" />
+                </a>
+
+                <div class="style inline">
+                    <p>
+                        <span class="styles">{{ 'base.header.title.first'|trans }}</span>
+                    </p>
+
+                    <p>
+                        <span class="more">{{ 'base.header.title.second'|trans }}</span>
+                    </p>
+                </div>
+                <ul class="inline right">
+                    <li class="inline">
+                        <img src="{{ asset('img/social.' ~ app.request.locale ~ '.jpg') }}" alt="{{ 'base.header.social.alt'|trans }}" />
+                    </li>
+                    <li class="inline">
+                        <a href="http://www.facebook.com/pages/MooveRadio/343666758996110">
+                            <img src="{{ asset('img/social/facebook.png') }}" alt="Facebook" class="social" />
+                        </a>
+                    </li>
+                    <li class="inline">
+                        <a href="https://twitter.com/MooveRadio">
+                            <img src="{{ asset('img/social/twitter.png') }}" alt="Twitter" class="social" />
+                        </a>
+                    </li>
+                    <li class="inline">
+                        <a href="http://fr.mooveradio.com">
+                            <img src="{{ asset('img/lang/fr.png') }}" alt="{{ 'lang.fr'|trans }}" class="social" />
+                        </a>
+                    </li>
+                    <li class="inline">
+                        <a href="http://en.mooveradio.com">
+                            <img src="{{ asset('img/lang/en.png') }}" alt="{{ 'lang.en'|trans }}" class="social" />
+                        </a>
+                    </li>
+                </ul>
+            </header>
+
+            <nav class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li><a href="#" class="player-open">{{ 'base.nav.player'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.nav.book'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.nav.chat'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.nav.news'|trans }}</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    {{ 'base.nav.others'|trans }}<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">{{ 'base.nav.team'|trans }}</a></li>
+                                    <li><a href="#">{{ 'base.nav.privacy'|trans }}</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">{{ 'base.nav.schedule'|trans }}</a></li>
+                        </ul>
+                        {# LOGIN FORM OR USER BOX #}
+                    </div>
+                </div>
+            </nav>
+
+            {% block body %}{% endblock %}
+
+            <footer class="footer">
+                <div class="row">
+                    <section class="span12">
+                        <h4 class="footerh">{{ 'base.footer.code'|trans }}</h4>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="offset1 span3">
+                        <h4>{{ 'base.footer.sitemap.title' }}</h4>
+                        <ul class="inline unstyled">
+                            <li><a href="#">{{ 'base.footer.sitemap.home'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.book'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.chat'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.news'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.team'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.privacy'|trans }}</a></li>
+                            <li><a href="#">{{ 'base.footer.sitemap.schedule'|trans }}</a></li>
+                        </ul>
+                    </section>
+                    <section class="offset1 span3">
+                        <h4>{{ 'base.footer.partners'|trans }}</h4>
+                        <ul class="inline unstyled">
+                            <li><a href="http://prohibition1933.com/">Prohibition 1933</a></li>
+                            <li><a href="http://www.free-webradio.com/">Free webradio</a></li>
+                            <li><a href="http://www.radionomy.com/fr">Radionomy</a></li>
+                            <li><a href="http://www.redheberg.com/">RedHeberg</a></li>
+                        </ul>
+                    </section>
+                    <section class="offset1 span3">
+                        <h4>{{ 'base.footer.social.title'|trans }}</h4>
+                        <ul class="inline unstyled">
+                            <li class="inline">
+                                <a href="http://www.facebook.com/pages/MooveRadio/343666758996110">
+                                    <img src="{{ asset('img/social/facebook.png') }}" alt="{{ 'base.footer.social.facebook'|trans }}" class="img-rounded social">
+                                </a>
+                            </li>
+                            <li class="inline">
+                                <a href="https://twitter.com/MooveRadio">
+                                    <img src="{{ asset('img/social/twitter.png') }}" alt="{{ 'base.footer.social.twitter'|trans }}" class="img-rounded social">
+                                </a>
+                            </li>
+                            <li class="inline">
+                                <a href="http://fr.mooveradio.com">
+                                    <img src="{{ asset('img/lang/fr.png') }}" alt="{{ 'lang.fr'|trans }}" class="social" />
+                                </a>
+                            </li>
+                            <li class="inline">
+                                <a href="http://en.mooveradio.com">
+                                    <img src="{{ asset('img/lang/en.png') }}" alt="{{ 'lang.en'|trans }}" class="social" />
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            var CONSTANTS = {
+                LANG: '{{ app.request.locale }}'
+            }
+        </script>
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/base.js') }}"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('#dediform').collapse('hide');
+
+                $('.modal-init').modal();
+            });
+        </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

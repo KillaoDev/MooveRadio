@@ -1,0 +1,7 @@
+parameters:
+#    mr_page.example.class: Mr\PageBundle\Example
+
+services:
+#    mr_page.example:
+#        class: %mr_page.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

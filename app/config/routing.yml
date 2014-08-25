@@ -1,0 +1,52 @@
+mr_book:
+    resource: "@MrBookBundle/Resources/config/routing.yml"
+    prefix:   /
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%
+
+mr_news:
+    resource: "@MrNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%
+
+mr_page:
+    resource: "@MrPageBundle/Resources/config/routing.yml"
+    prefix:   /
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%
+
+mr_user:
+    resource: "@MrUserBundle/Resources/config/routing.yml"
+    prefix:   /
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+    host:     "{_locale}.%domain%"
+    defaults:
+        _locale: %locale%
+    requirements:
+        _locale: %accepted_locales%

@@ -1,0 +1,33 @@
+mr_book_list:
+    path:     /book
+    defaults: { _controller: MrBookBundle:Message:list }
+    methods: [GET]
+
+mr_book_list_page:
+    path:     /book/{page}
+    defaults: { _controller: MrBookBundle:Message:list }
+    methods: [GET]
+    requirements:
+        page: \d+
+
+mr_book_admin_list:
+    path:     /admin/book
+    defaults: { _controller: MrBookBundle:Message:listAdmin }
+    methods: [GET]
+
+mr_book_admin_list_page:
+    path:     /admin/book/{page}
+    defaults: { _controller: MrBookBundle:Message:listAdmin }
+    methods: [GET]
+    requirements:
+        page: \d+
+
+mr_book_create:
+    path: /book/create
+    defaults: { _controller: MrBookBundle:Message:create }
+    methods: [GET, POST]
+
+mr_book_delete:
+    path: /admin/book/delete/{messageID}
+    defaults: { _controller: MrBookBundle:Message:delete }
+    methods: [GET, POST]

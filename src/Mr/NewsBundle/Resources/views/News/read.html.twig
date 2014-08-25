@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ news.title }}</h1>
+    <h6>{{ news.date|date('d/m/Y') }}</h6>
+    <p>{{ news.content|nl2br }}</p>
+
+    {% for comment in news.comments %}
+        <div>
+            <h4>{{ comment.title }}</h4>
+            <h6>{{ comment.date|date('d/m/Y') }}</h6>
+
+            <p>{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {{ form(formComment) }}
+    {% endif %}
+{% endblock %}

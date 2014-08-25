@@ -1,0 +1,54 @@
+mr_news_list:
+    path:     /news/list
+    defaults: { _controller: MrNewsBundle:News:list }
+    methods: [GET]
+
+mr_news_list_page:
+    path:     /news/list/{page}
+    defaults: { _controller: MrNewsBundle:News:list }
+    methods: [GET]
+
+mr_news_list_admin:
+    path:     /admin/news/list
+    defaults: { _controller: MrNewsBundle:News:listAdmin }
+    methods: [GET]
+
+mr_news_list_page_admin:
+    path:     /admin/news/list/{page}
+    defaults: { _controller: MrNewsBundle:News:listAdmin }
+    methods: [GET]
+
+mr_news_read:
+    path:     /n/{canonical}
+    defaults: { _controller: MrNewsBundle:News:read }
+    methods: [GET]
+
+mr_news_read_admin:
+    path:     /admin/news/{canonical}
+    defaults: { _controller: MrNewsBundle:News:readAdmin }
+    methods: [GET]
+
+mr_news_create:
+    path:     /admin/news/create
+    defaults: { _controller: MrNewsBundle:News:create }
+    methods: [GET, POST]
+
+mr_news_update:
+    path:     /admin/news/update/{canonical}
+    defaults: { _controller: MrNewsBundle:News:update }
+    methods: [GET, POST]
+
+mr_news_delete:
+    path:     /news/delete/{canonical}
+    defaults: { _controller: MrNewsBundle:News:delete }
+    methods: [GET, POST]
+
+mr_news_comment_create:
+    path:     /news/comment/create/{newsCanonical}
+    defaults: { _controller: MrNewsBundle:Comment:create }
+    methods: [GET, POST]
+
+mr_news_comment_delete:
+    path:     /news/comment/delete/{commentID}
+    defaults: { _controller: MrNewsBundle:Comment:delete }
+    methods: [GET, POST]
