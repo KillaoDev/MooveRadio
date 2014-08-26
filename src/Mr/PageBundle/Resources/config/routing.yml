@@ -1,3 +1,13 @@
 homepage:
     path:     /
     defaults: { _controller: MrPageBundle:Homepage:homepage }
+
+player:
+    path:   /player
+    defaults: { _controller: MrPageBundle:Page:player }
+    options:
+        expose: true
+
+mr_page_privacy:
+    path:   /privacy
+    defaults: { _controller: MrPageBundle:Page:privacy }

@@ -1,22 +1,40 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <ul>
-        {% for team in teams %}
-            <li>
-                {{ team.name }}
-                <ul>
-                    {% for userteam in team.userteam(app.request.locale) %}
-                        <li>
-                            <ul>
-                                <li>{{ userteam.user.username }}</li>
-                                <li>{{ userteam.title }}</li>
-                                <li>{{ userteam.content }}</li>
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <section class="span12 contenu equipe">
+            {% for team in teams %}
+                <h3>{{ team.name }}</h3>
+                {% for userteam in team.userteam(app.request.locale) %}
+                    <img src="{{ userteam.user.avatar }}" alt="{{ userteam.user.username }}"
+                         class="img-polaroid"
+                         data-original-title="{{ userteam.title }}" data-content="{{ userteam.content }}" />
+                {% endfor %}
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+            var opt = {
+                placement: 'right',
+                trigger: 'hover',
+                delay: {show: 100, hide: 250}
+            };
+
+            $('.img-polaroid').popover(opt);
+
+            var positionElementInPage = $('.navbar').offset().top;
+            $(window).scroll(
+                    function () {
+                        if ($(window).scrollTop() >= positionElementInPage)
+                            $('.navbar').addClass("navbar-fixed-top");
+                        else
+                            $('.navbar').removeClass("navbar-fixed-top");
+                    }
+            );
+        });
+    </script>
 {% endblock %}

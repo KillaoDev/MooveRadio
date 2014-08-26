@@ -1,7 +1,7 @@
 $(function(){
     // Open a new window with the player foreach each .player-open elements
     $(document).on('click', '.player-open', function(){
-        alert('Not implemented yet!')
+        window.open(Routing.generate('player', {_locale: CONSTANTS.LANG}),'','width=255,height=315');
     });
 
     // Transform the menu into navbar when we scroll.

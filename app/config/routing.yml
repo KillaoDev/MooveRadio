@@ -50,3 +50,6 @@ fos_user_register:
         _locale: %locale%
     requirements:
         _locale: %accepted_locales%
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

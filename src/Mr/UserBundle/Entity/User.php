@@ -62,6 +62,13 @@ class User extends BaseUser {
      */
     private $newsletter;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
+     */
+    private $avatar;
+
 
     /**
      * Get id
@@ -195,5 +202,21 @@ class User extends BaseUser {
     public function getNewsletter()
     {
         return $this->newsletter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatar() {
+        return $this->avatar;
+    }
+
+    /**
+     * @param string $avatar
+     * @return User
+     */
+    public function setAvatar($avatar) {
+        $this->avatar = $avatar;
+        return $this;
     }
 }

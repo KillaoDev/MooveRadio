@@ -11,16 +11,30 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class MessageRepository extends EntityRepository {
-    public function listPage($language, $page, $limit=50) {
+    /**
+     * Lists all message split by page in given language.
+     *
+     * @param string $language The current language
+     * @param int    $page     The current page
+     * @param int    $limit    The limit of message by page
+     * @return Message[] The list of message for given page
+     */
+    public function listPage($language, $page, $limit = 50) {
         return $this->createQueryBuilder('m')
-                   ->where('m.language = :language')
-                   ->setParameter('language', $language)
-                   ->setFirstResult(($page-1) * $limit)
-                   ->setMaxResults($limit)
-                   ->getQuery()
-                   ->getResult();
+                    ->where('m.language = :language')
+                    ->setParameter('language', $language)
+                    ->setFirstResult(($page - 1) * $limit)
+                    ->setMaxResults($limit)
+                    ->getQuery()
+                    ->getResult();
     }
 
+    /**
+     * Counts the total of messages in given language.
+     *
+     * @param string $language The current language
+     * @return int The number of messages
+     */
     public function count($language) {
         return $this->createQueryBuilder('m')
                     ->select('count(m)')
@@ -28,5 +42,22 @@ class MessageRepository extends EntityRepository {
                     ->setParameter('language', $language)
                     ->getQuery()
                     ->getSingleScalarResult();
+    }
+
+    /**
+     * Returns the last $limit messages in given language.
+     *
+     * @param string $language The current language
+     * @param int    $limit    The limit of messages to return
+     * @return Message[]
+     */
+    public function findLast($language, $limit) {
+        return $this->createQueryBuilder('n')
+                    ->where('n.language = :language')
+                    ->setParameter('language', $language)
+                    ->setFirstResult(0)
+                    ->setMaxResults($limit)
+                    ->getQuery()
+                    ->getResult();
     }
 }

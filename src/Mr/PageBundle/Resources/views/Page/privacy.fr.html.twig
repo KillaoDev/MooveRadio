@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <section class="span12 contenu mentions">
+            <h3 class="titre main">Mentions légales</h3>
+
+            <p>
+                MooveRadio est hébergé par <a href="http://radionomy.com" title="radionomy">Radionomy</a>, les droits
+                d'auteurs sont couverts par celui-ci.
+                Le site est hébergé par <a href="http://redheberg.com" title="redheberg">RedHeberg</a>.
+            </p>
+
+            <p>
+                Editeur du site : Antoine Moeyersoms
+            </p>
+
+            <p>
+                Directeur de la publication : Antoine Moeyersoms
+            </p>
+
+            <p>
+                En aucun cas, les données recueillies sur le site mooveradio.com ne seront cédées ou vendues à des
+                tiers.
+                Aucune adresse email ne sera transmise à des tiers y compris à nos partenaires sauf avec l’accord écrit
+                des intéressés.
+                Les données collectées par l’intermédiaire du chat et du compte sont destinées à l’usage exclusif de
+                l'éditeur du site.
+            </p>
+
+            <p>
+                Les contenus du site mooveradio.com sont soumis à la législation en vigueur sur le droit d’auteur et
+                sont la propriété exclusive de MooveRadio.
+                Toute reproduction et rediffusion de tout ou partie de ces contenus sont soumises à l’autorisation
+                préalable
+                écrite et expresse du Forum des droits sur l’internet.
+            </p>
+
+            <p>
+                Les options d’enregistrement de vos identifiants et mots de passe de publication sur les forums de
+                discussion et d’accès à la plate-forme de médiation peuvent occasionner l’emploi d’un cookie.
+                Vous pouvez supprimer les cookies enregistrés sur votre ordinateur au moyen de la méthode de suppression
+                des cookies proposée par le navigateur que vous utilisez. Ces cookies ne sont en aucune façon conçus à
+                des fins de collecte de données personnelles.
+            </p>
+
+            <p>
+                Ce site a pour but de diffuser de la musique et de discuter entre personnes civilisées.
+                Il ne saurait en aucun cas être tenu pour responsable des erreurs, des problèmes techniques rencontrés
+                sur le site et
+                sur tous les autres sites vers lesquels nous établissons des liens, ou de toute interprétation des
+                informations publiées sur ces sites, ainsi que des conséquences de leur utilisation.
+            </p>
+
+            <div class="img_mentions">
+                <img src="{{ asset('img/redheberg.png') }}" alt="Logo RedHeberg" />
+                <img src="{{ asset('img/radionomy.png') }}" alt="Logo Radionomy" />
+            </div>
+        </section>
+    </div>
+{% endblock %}

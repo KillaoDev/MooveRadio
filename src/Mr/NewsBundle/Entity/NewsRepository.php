@@ -11,29 +11,64 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class NewsRepository extends EntityRepository {
-    public function listPage($language, $page, $active=true, $limit=50) {
+    /**
+     * Lists all news split by pages in given language.
+     *
+     * @param string $language The current language
+     * @param int    $page     The current page
+     * @param bool   $active   Return only active news
+     * @param int    $limit    The limit of news to return
+     * @return News[]
+     */
+    public function listPage($language, $page, $active = true, $limit = 50) {
         $qb = $this->createQueryBuilder('n')
-            ->where('n.language = :language')
-            ->setParameter('language', $language);
+                   ->where('n.language = :language')
+                   ->setParameter('language', $language);
         if ($active) {
             $qb->andWhere('n.active = true')
                ->orderBy('n.date', 'asc');
         }
-        return $qb->setFirstResult(($page-1) * $limit)
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult();
+        return $qb->setFirstResult(($page - 1) * $limit)
+                  ->setMaxResults($limit)
+                  ->getQuery()
+                  ->getResult();
     }
 
-    public function findByCanonical($canonical, $language, $active=true) {
+    /**
+     * Returns a news in terms of its canonical and language.
+     *
+     * @param string $canonical The news canonical
+     * @param string $language  The news language
+     * @param bool   $active    True if the news must be active
+     * @return News The news with given canonical and language or null if any
+     */
+    public function findByCanonical($canonical, $language, $active = true) {
         $qb = $this->createQueryBuilder('n')
-            ->where('n.canonical = :canonical')
-            ->setParameter('canonical', $canonical)
-            ->andWhere('n.language = :language')
-            ->setParameter('language', $language);
+                   ->where('n.canonical = :canonical')
+                   ->setParameter('canonical', $canonical)
+                   ->andWhere('n.language = :language')
+                   ->setParameter('language', $language);
         if ($active) {
             $qb->andWhere('n.active = true');
         }
         return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    /**
+     * Returns the last $limit news (only active ones).
+     *
+     * @param string $language The current language
+     * @param int    $limit    The limit of news to return
+     * @return News[]
+     */
+    public function findLast($language, $limit) {
+        return $this->createQueryBuilder('n')
+                    ->where('n.language = :language')
+                    ->setParameter('language', $language)
+                    ->andWhere('n.active = true')
+                    ->setFirstResult(0)
+                    ->setMaxResults($limit)
+                    ->getQuery()
+                    ->getResult();
     }
 }

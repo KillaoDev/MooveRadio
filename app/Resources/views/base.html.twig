@@ -62,19 +62,19 @@
                     <div class="container">
                         <ul class="nav">
                             <li><a href="#" class="player-open">{{ 'base.nav.player'|trans }}</a></li>
-                            <li><a href="#">{{ 'base.nav.book'|trans }}</a></li>
-                            <li><a href="#">{{ 'base.nav.chat'|trans }}</a></li>
-                            <li><a href="#">{{ 'base.nav.news'|trans }}</a></li>
+                            <li><a href="{{ path('mr_book_list') }}">{{ 'base.nav.book'|trans }}</a></li>
+                            <!--<li><a href="#">{{ 'base.nav.chat'|trans }}</a></li>-->
+                            <li><a href="{{ path('mr_news_list') }}">{{ 'base.nav.news'|trans }}</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     {{ 'base.nav.others'|trans }}<b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">{{ 'base.nav.team'|trans }}</a></li>
-                                    <li><a href="#">{{ 'base.nav.privacy'|trans }}</a></li>
+                                    <li><a href="{{ path('mr_user_team_show') }}">{{ 'base.nav.team'|trans }}</a></li>
+                                    <li><a href="{{ path('mr_page_privacy') }}">{{ 'base.nav.privacy'|trans }}</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">{{ 'base.nav.schedule'|trans }}</a></li>
+                            <!--<li><a href="#">{{ 'base.nav.schedule'|trans }}</a></li>-->
                         </ul>
                         {# LOGIN FORM OR USER BOX #}
                     </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="row">
                     <section class="offset1 span3">
-                        <h4>{{ 'base.footer.sitemap.title' }}</h4>
+                        <h4>{{ 'base.footer.sitemap.title'|trans }}</h4>
                         <ul class="inline unstyled">
                             <li><a href="#">{{ 'base.footer.sitemap.home'|trans }}</a></li>
                             <li><a href="#">{{ 'base.footer.sitemap.book'|trans }}</a></li>
@@ -147,11 +147,12 @@
         </script>
         <script src="{{ asset('js/jquery.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="{{ asset('js/base.js') }}"></script>
         <script type="text/javascript">
             $(function(){
                 $('#dediform').collapse('hide');
-
                 $('.modal-init').modal();
             });
         </script>

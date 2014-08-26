@@ -7,12 +7,13 @@ use Mr\NewsBundle\Entity\NewsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomepageController extends Controller {
-    public function homepageAction(Request $request) {
-        return $this->render('MrPageBundle:Homepage:home.html.twig', array(
-            'newsList' => $this->getRepNews()->findLast($request->getLocale(), 1),
-            'messages' => $this->getRepMessage()->findLast($request->getLocale(), 5)
-        ));
+class PageController extends Controller {
+    public function playerAction(Request $request) {
+        return $this->render('MrPageBundle:Page:player.' . $request->getLocale() . '.html.twig');
+    }
+
+    public function privacyAction(Request $request) {
+        return $this->render('MrPageBundle:Page:privacy.' . $request->getLocale() . '.html.twig');
     }
 
     /**

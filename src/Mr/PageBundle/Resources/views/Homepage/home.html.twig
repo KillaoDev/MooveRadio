@@ -51,4 +51,55 @@
             </div>
         </section>
     </div>
+
+    {% if newsList|length != 0 %}
+        <div class="row">
+            <section class="span12 contenu article news">
+                <h3 class="titre main">{{ 'mr.page.home.news.title'|trans }}</h3>
+
+                {% for news in newsList %}
+                    <img src="{{ news.image }}" class="right inline une"
+                         alt="{{ 'mr.page.home.news.imgprefix'|trans }} {{ news.title }}" />
+                    <h3 class="titre">
+                        {{ news.title }}
+                        <small>
+                            <span class="label"><a class="pseudo" href="#">{{ news.user.username }}</a></span> -
+                            <span class="label">
+                                <time datetime="{{ news.date|date('Y-m-d\TH:i:s') }}">{{ news.date|date('d/m/Y') }}</time>
+                            </span>
+                        </small>
+                    </h3>
+                    <article class="news inline left">
+                        <p>{{ news.content|nl2br }}</p>
+                    </article>
+                {% endfor %}
+                <p style="clear:both;margin-left:1em;"><a href="#">{{ 'mr.page.home.news.all'|trans }}</a></p>
+            </section>
+        </div>
+    {% endif %}
+
+    {% if messages|length != 0 %}
+        <div class="row" id="dedicace">
+            <section class="span12 contenu">
+                <h3 class="titre main">{{ 'mr.page.home.book.title'|trans }}</h3>
+
+                <div>
+                    <div id="slider">
+                        {% for message in messages %}
+                            <div class="dedicace inline">
+                                <span class="label"><a class="pseudo" href="#">{{ message.user.username }}</a></span> -
+                                <span class="label">
+                                    <time datetime="{{ message.date|date('Y-m-d\TH:i:s') }}">
+                                        {{ message.date|date('d/m/Y') }}
+                                    </time>
+                                </span>
+
+                                <p>{{ message.content }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    {% endif %}
 {% endblock %}
