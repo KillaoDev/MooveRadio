@@ -8,7 +8,7 @@ mr:
             image:
                 label: Image
             active:
-                label: Activer
+                label: Active
             submit: Create
         comment:
             title:
