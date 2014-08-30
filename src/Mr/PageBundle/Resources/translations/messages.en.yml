@@ -2,7 +2,7 @@ mr:
     page:
         home:
             listen:
-                title: Listen to us
+                title: PLAYER
                 player: Player
             slider:
                 first:
