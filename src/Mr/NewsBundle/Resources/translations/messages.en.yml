@@ -1,0 +1,27 @@
+mr:
+    news:
+        news:
+            title:
+                label: Title
+            content:
+                label: Text
+            image:
+                label: Image
+            active:
+                label: Active
+            submit: Create
+        comment:
+            title:
+                label: Title
+            content:
+                label: Text
+            submit: Comment
+        delete:
+            confirm:
+                label: Confirm
+            submit: Delete
+        admin:
+            list:
+                date: Date
+                title: Title
+                actions: Actions

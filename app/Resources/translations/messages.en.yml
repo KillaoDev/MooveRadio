@@ -1,0 +1,39 @@
+base:
+    title: Mooveradio - Let's Moove !
+    header:
+        logo:
+            alt: ""
+        title:
+            first: Electro - House - Trance - Dubstep
+            second: Let's Moove !
+        social:
+            alt: Social
+    nav:
+        player: Player
+        book: Dedications
+        chat: Chat
+        news: News
+        others: More
+        team: Team
+        privacy: Privacy policy
+        schedule: Events
+    footer:
+        code: Code by Killao and Stombaker
+        sitemap:
+            title: Sitemap 
+            home: Home
+            book: Dedications
+            chat: Chat
+            news: News
+            team: Team
+            privacy: Privacy policy
+            schedule: Events
+        partners: Featured sites
+        social:
+            title: Social
+            facebook: Facebook
+            twitter: Twitter
+
+lang:
+    en: english
+    fr: french

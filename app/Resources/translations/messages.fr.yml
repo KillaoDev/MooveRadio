@@ -18,7 +18,7 @@ base:
         privacy: Mentions légales
         schedule: Calendrier
     footer:
-        code: Code by Killao and Stombaker
+        code: Code par Killao et Stombaker
         sitemap:
             title: Plan du site
             home: Accueil

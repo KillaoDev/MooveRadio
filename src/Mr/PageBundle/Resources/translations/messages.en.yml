@@ -1,0 +1,21 @@
+mr:
+    page:
+        home:
+            listen:
+                title: PLAYER
+                player: Player
+            slider:
+                first:
+                    alt: ""
+                    title: Welcome on MooveRadio !
+                    description: 100% Electro - House - Dubstep - Trance ! Let's Moove !
+                second:
+                    alt: ""
+                    title: Play for free at Prohition 1933 !
+                    description: ""
+            news:
+                title: Last news
+                imgprefix: Image of
+                all: All the news
+            book:
+                title: Your dedications

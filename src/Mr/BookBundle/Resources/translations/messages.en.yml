@@ -1,0 +1,12 @@
+mr:
+    book:
+        message:
+            title:
+                label: Title
+            content:
+                label: Text
+            submit: Send
+        delete:
+            confirm:
+                label: Confirm
+            submit: Cancel

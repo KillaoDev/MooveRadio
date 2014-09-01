@@ -1,0 +1,4 @@
+form:
+    username: Username
+    password: Password
+    password_confirmation: Confirm
