@@ -30,7 +30,7 @@ class User extends BaseUser {
     protected $id;
 
     /**
-     * @Assert\Regex("/^[a-z0-9]+$/")
+     * @Assert\Regex("/^[A-Za-z0-9-]+$/")
      */
     protected $username;
 
