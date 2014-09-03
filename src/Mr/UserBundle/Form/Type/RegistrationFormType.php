@@ -9,7 +9,6 @@ class RegistrationFormType extends BaseType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         parent::buildForm($builder, $options);
 
-        // add your custom field
         $builder
             ->remove('email')
             ->add('email', 'repeated', array(
@@ -24,7 +23,7 @@ class RegistrationFormType extends BaseType {
                 'label' => 'mr.user.registration.birthdate.label'
             ))
             ->add('country', 'country', array(
-                //'empty_value' => 'mr.user.registration.country.label'
+                'empty_value' => 'mr.user.registration.country.label'
             ))
             ->add('city', 'text', array(
                 'required' => false,

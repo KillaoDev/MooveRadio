@@ -25,6 +25,7 @@ class MessageRepository extends EntityRepository {
                     ->setParameter('language', $language)
                     ->setFirstResult(($page - 1) * $limit)
                     ->setMaxResults($limit)
+                    ->orderBy('m.date', 'desc')
                     ->getQuery()
                     ->getResult();
     }

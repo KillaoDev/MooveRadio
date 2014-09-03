@@ -10,3 +10,6 @@ mr:
             confirm:
                 label: Confirmer
             submit: Supprimer
+        view:
+            title: Dédicaces
+            postitle: Poste ta dédicace

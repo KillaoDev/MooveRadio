@@ -1,22 +1,104 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Dédicaces</h1>
+    <div class="row">
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <section class="span12 writededi">
+                <div class="dediblock">
+                    <button type="button" class="btn btn-info btn-block dedi" data-toggle="collapse" data-target="#dediform">
+                        {{ 'mr.book.view.postitle'|trans }}
+                    </button>
+                </div>
 
-    {% for message in messages %}
-        <div>
-            <h3>{{ message.title }}</h3>
-            <h6>{{ message.date|date('d/m/Y') }}</h6>
-            <p>
-                {{ message.content }}
-            </p>
-        </div>
-    {% endfor %}
+                <div id="dediform" class="collapse in inline">
+                    <form method="post" action="{{ path('mr_book_create') }}" class="form-horizontal" {{ form_enctype(formCreate) }}>
+                        <div class="control-group">
+                            {{ form_label(formCreate.content, '', {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="controls">
+                                {{ form_widget(formCreate.content, {'attr': { 'class': 'span6'}}) }}
+                            </div>
+                        </div>
 
-    {% set pageMax = max((nbMessages / 50)|round(0, 'ceil'), 1) %}
-    {% for i in 1..pageMax %}
-        <a href="{{ path('mr_book_list_page', {'page': i}) }}">{{ i }}</a>
-    {% endfor %}
+                        {{ form_widget(formCreate.save) }}
+                        <div class="hidden">{{ form_rest(formCreate) }}</div>
+                    </form>
+                </div>
+            </section>
+        {% endif %}
 
-    {{ form(formCreate) }}
+        <section class="span12 contenu comments">
+            <h3 class="page-header">{{ 'mr.book.view.title'|trans }}</h3>
+
+            {% set pageMax = max((nbMessages / 50)|round(0, 'ceil'), 1) %}
+            <div class="navi">
+                <ul>
+                    {% if page == 1 %}
+                        <li class="inactive">&lt;&lt;</li>
+                        <li class="inactive">&lt;</li>
+                    {% else %}
+                        <li><a href="{{ path('mr_book_list_page', {'page': 1}) }}">&lt;&lt;</a></li>
+                        <li><a href="{{ path('mr_book_list_page', {'page': page-1}) }}">&lt;</a></li>
+                    {% endif %}
+                    {% for i in 1..pageMax %}
+                        {% if i == page %}
+                            <li class="inactive">{{ i }}</li>
+                        {% else %}
+                            <li><a href="{{ path('mr_book_list_page', {'page': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page == pageMax %}
+                        <li class="inactive">&gt;&gt;</li>
+                        <li class="inactive">&gt;</li>
+                    {% else %}
+                        <li><a href="{{ path('mr_book_list_page', {'page': pageMax}) }}">&gt;&gt;</a></li>
+                        <li><a href="{{ path('mr_book_list_page', {'page': page+1}) }}">&gt;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            {% for message in messages %}
+                <div class="commentaire">
+                    <img src="{{ asset('img/avatars/' ~ message.user.avatar) }}" alt="Avatar de {{ message.user.username }}" class="user img-rounded" />
+                    <h5>
+                        {{ message.user.username }}
+                        <small>
+                            : le
+                            <span class="label">
+                                <time datetime="{{ message.date|date('Y-m-d\TH:i:s') }}">{{ message.date|date('d/m/Y') }}</time>
+                            </span>
+                        </small>
+                    </h5>
+                    <p>{{ message.content|nl2br }}</p>
+                </div>
+            {% else %}
+                <p class="commentaire">No dedications for the moment</p>
+            {% endfor %}
+
+            <div class="navi">
+                <ul>
+                    {% if page == 1 %}
+                        <li class="inactive">&lt;&lt;</li>
+                        <li class="inactive">&lt;</li>
+                    {% else %}
+                        <li><a href="{{ path('mr_book_list_page', {'page': 1}) }}">&lt;&lt;</a></li>
+                        <li><a href="{{ path('mr_book_list_page', {'page': page-1}) }}">&lt;</a></li>
+                    {% endif %}
+                    {% for i in 1..pageMax %}
+                        {% if i == page %}
+                            <li class="inactive">{{ i }}</li>
+                        {% else %}
+                            <li><a href="{{ path('mr_book_list_page', {'page': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page == pageMax %}
+                        <li class="inactive">&gt;&gt;</li>
+                        <li class="inactive">&gt;</li>
+                    {% else %}
+                        <li><a href="{{ path('mr_book_list_page', {'page': pageMax}) }}">&gt;&gt;</a></li>
+                        <li><a href="{{ path('mr_book_list_page', {'page': page+1}) }}">&gt;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+    </div>
 {% endblock %}

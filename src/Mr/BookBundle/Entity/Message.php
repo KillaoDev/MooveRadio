@@ -26,14 +26,6 @@ class Message
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255, nullable=false)
-     * @Assert\NotBlank()
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="content", type="text", nullable=false)
      * @Assert\NotBlank()
      */
@@ -70,29 +62,6 @@ class Message
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Message
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
     /**

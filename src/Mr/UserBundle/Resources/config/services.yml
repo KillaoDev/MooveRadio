@@ -16,3 +16,7 @@ services:
         class: Mr\UserBundle\Form\Type\DeleteType
         tags:
             - { name: form.type, alias: mr_user_delete }
+    mr_user.listener.registration_success:
+        class: Mr\UserBundle\EventListener\RegistrationSuccessListener
+        tags:
+            - { name: kernel.event_subscriber }

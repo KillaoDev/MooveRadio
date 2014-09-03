@@ -15,6 +15,7 @@ class MessageController extends Controller {
     public function listAction(Request $request, $page=1) {
         return $this->render('MrBookBundle:Message:list.html.twig', array(
             'messages' => $this->getRepMessage()->listPage($request->getLocale(), $page),
+            'page' => $page,
             'nbMessages' => $this->getRepMessage()->count($request->getLocale()),
             'formCreate' => $this->getFormCreate()->createView()
         ));
@@ -48,7 +49,7 @@ class MessageController extends Controller {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
                 $em->flush();
-                return $this->redirect($this->generateUrl('mr_book_admin_list'));
+                return $this->redirect($this->generateUrl('mr_book_list'));
             }
         }
         return $this->render('MrBookBundle:Message:form.html.twig', array('form' => $form->createView()));

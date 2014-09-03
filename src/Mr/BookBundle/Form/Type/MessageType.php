@@ -11,10 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class MessageType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('title', 'text', array(
-                'required' => true,
-                'label' => 'mr.book.message.title.label'
-            ))
             ->add('content', 'textarea', array(
                 'required' => true,
                 'label' => 'mr.book.message.content.label'
