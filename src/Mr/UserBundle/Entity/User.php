@@ -44,6 +44,13 @@ class User extends BaseUser {
     /**
      * @var string
      *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
@@ -101,6 +108,22 @@ class User extends BaseUser {
     public function getBirthdate()
     {
         return $this->birthdate;
+    }
+
+    /**
+     * @param string $country
+     * @return User
+     */
+    public function setCountry($country) {
+        $this->country = $country;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry() {
+        return $this->country;
     }
 
     /**

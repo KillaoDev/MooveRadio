@@ -5,7 +5,145 @@
         <section class="span12 contenu article">
             <h3 class="titre main">{{ 'mr.user.registration.title'|trans }}</h3>
 
-            {{ form(form) }}
+            <form action="{{ path('fos_user_registration_register') }}" method="post" class="form-horizontal" id="inscription"  {{ form_enctype(form) }}>
+                {% if form_errors(form) != '' %}
+                    <p class="error">
+                        {{ form_errors(form) }}
+                    </p>
+                {% endif %}
+
+                <div class="control-group {% if form_errors(form.username) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.username) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.username, {'attr': {
+                        'class': 'input-large',
+                        'pattern': '[-_.a-zA-Z0-9]{3,}',
+                        'autocomplete': 'off',
+                        'autofocus': true,
+                        'maxlength': 255}}) }}
+                        {% if form_errors(form.username) != '' %}
+                            <span class="help-inline">{{ form_errors(form.username) }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.plainPassword.first) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.plainPassword.first) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.plainPassword.first, {'attr': {
+                        'class': 'input-large',
+                        'pattern': '(.+){8,}',
+                        'autocomplete': 'off'}}) }}
+                        <span class="help-inline">{{ form_errors(form.plainPassword.first) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.plainPassword.second) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.plainPassword.second) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.plainPassword.second, {'attr': {
+                        'class': 'input-large',
+                        'pattern': '(.+){8,}',
+                        'autocomplete': 'off'}}) }}
+                        <span class="help-inline">{{ form_errors(form.plainPassword.second) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.email.first) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.email.first) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.email.first, {'attr': {
+                        'class': 'input-large',
+                        'maxlength': '255',
+                        'autocomplete': 'off'}}) }}
+                        <span class="help-inline">{{ form_errors(form.email.first) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.email.second) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.email.second) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.email.second, {'attr': {
+                        'class': 'input-large',
+                        'maxlength': '255',
+                        'autocomplete': 'off'}}) }}
+                        <span class="help-inline">{{ form_errors(form.email.second) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.birthdate) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.birthdate) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.birthdate.day, {'attr': {'class': 'span1'}}) }}
+                        {{ form_widget(form.birthdate.month, {'attr': {'class': 'span1'}}) }}
+                        {{ form_widget(form.birthdate.year, {'attr': {'class': 'span1'}}) }}
+                        <span class="help-inline">{{ form_errors(form.birthdate) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.country) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.country) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.country, {'attr': {'class': 'span2'}}) }}
+                        <span class="help-inline">{{ form_errors(form.country) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.city) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.city) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.city, {'attr': {
+                        'class': 'input-large',
+                        'maxlength': '255'}}) }}
+                        <span class="help-inline">{{ form_errors(form.city) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.gender) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.gender) }}
+                    </div>
+                    <div class="controls">
+                        <label class="radio">{{ form_widget(form.gender[0]) }} Non défini</label>
+                        <label class="radio">{{ form_widget(form.gender[1]) }} Masculin</label>
+                        <label class="radio">{{ form_widget(form.gender[2]) }} Féminin</label>
+                        <span class="help-inline">{{ form_errors(form.gender) }}</span>
+                    </div>
+                </div>
+
+                <div class="control-group {% if form_errors(form.newsletter) != '' %}error{% endif %}">
+                    <div class="control-label">
+                        {{ form_label(form.newsletter) }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.newsletter) }}
+                        <span class="help-inline">{{ form_errors(form.newsletter) }}</span>
+                    </div>
+                </div>
+
+                <div class="hidden">{{ form_rest(form) }}</div>
+
+                <p class="text-error">
+                    {{ 'mr.user.registration.mandatory'|trans }} <br /><br />
+                    <button type="submit" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> {{ form.save.vars.label|trans }}</button>
+                </p>
+            </form>
         </section>
     </div>
 {% endblock %}

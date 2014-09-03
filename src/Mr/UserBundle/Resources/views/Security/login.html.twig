@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <section class="span12 contenu article" style="padding-top: 20px">
+            {% if error %}
+                <div class="alert alert-error">{{ 'mr.user.login.error'|trans }}</div>
+            {% endif %}
+
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="username">{{ 'mr.user.login.username.label'|trans }}</label>
+                    </div>
+                    <div class="controls">
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="password">{{ 'mr.user.login.password.label'|trans }}</label>
+                    </div>
+                    <div class="controls">
+                        <input type="password" id="password" name="_password" required="required" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="remember_me">{{ 'mr.user.login.rememberme.label'|trans }}</label>
+                    </div>
+                    <div class="controls">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" id="_submit" name="_submit" value="{{ 'mr.user.login.submit'|trans }}" class="btn btn-primary" />
+                    {#<a href="{{ path('mooveradio_user_change_password') }}" class="btn btn-inverse">Forgot your password ?</a>#}
+                </div>
+            </form>
+        </section>
+    </div>
+{% endblock %}

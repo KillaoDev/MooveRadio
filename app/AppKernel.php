@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Mr\UserBundle\MrUserBundle(),
             new Mr\NewsBundle\MrNewsBundle(),
             new Mr\BookBundle\MrBookBundle(),
+            new Mr\ChatBundle\MrChatBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

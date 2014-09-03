@@ -19,3 +19,6 @@ mr:
                 all: Voir toutes les news
             book:
                 title: Vos dédicaces
+
+    bo:
+        title: Administration

@@ -33,7 +33,23 @@ base:
             title: Social
             facebook: Facebook
             twitter: Twitter
+    userbox:
+        hello: Bonjour
+        profile: Profil
+        logout: Déconnexion
+    userform:
+        username:
+            placeholder: Pseudo
+        password:
+            placeholder: Mot de passe
+        rememberme:
+            label: Rester connecté
+        submit: Connexion
 
 lang:
     en: anglais
     fr: français
+
+country:
+    BE: Belgique
+    FR: France

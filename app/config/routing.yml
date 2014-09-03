@@ -1,3 +1,7 @@
+mr_chat:
+    resource: "@MrChatBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mr_book:
     resource: "@MrBookBundle/Resources/config/routing.yml"
     prefix:   /

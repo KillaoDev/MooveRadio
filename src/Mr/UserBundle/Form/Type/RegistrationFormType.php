@@ -23,6 +23,9 @@ class RegistrationFormType extends BaseType {
                 'required' => false,
                 'label' => 'mr.user.registration.birthdate.label'
             ))
+            ->add('country', 'country', array(
+                //'empty_value' => 'mr.user.registration.country.label'
+            ))
             ->add('city', 'text', array(
                 'required' => false,
                 'label' => 'mr.user.registration.city.label'

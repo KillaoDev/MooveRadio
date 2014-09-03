@@ -11,3 +11,7 @@ player:
 mr_page_privacy:
     path:   /privacy
     defaults: { _controller: MrPageBundle:Page:privacy }
+
+bo_home:
+    path: /admin
+    defaults: { _controller: MrPageBundle:Homepage:backOffice }

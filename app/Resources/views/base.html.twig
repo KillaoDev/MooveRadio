@@ -75,8 +75,43 @@
                                 </ul>
                             </li>
                             <!--<li><a href="#">{{ 'base.nav.schedule'|trans }}</a></li>-->
+                            {% if is_granted('ROLE_BO') %}
+                                <li><a href="{{ path('bo_home') }}">Administration</a></li>
+                            {% endif %}
                         </ul>
-                        {# LOGIN FORM OR USER BOX #}
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <div class="deconnexion">
+                                <p class="inline">
+                                    {{ 'base.userbox.hello'|trans }} {{ app.user.username }}
+                                </p>
+                                <div class="btn-group inline">
+                                    <a href="{#{ path('fos_user_profile_show') }#}" class="btn btn-primary">{{ 'base.userbox.profile'|trans }}</a>
+                                    <a href="{{ path('fos_user_security_logout') }}" class="btn">{{ 'base.userbox.logout'|trans }}</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="right">
+                                <form method="post" action="{{ path('fos_user_security_check') }}" class="form-inline">
+                                    <div class="input-prepend inline">
+                                        <span class="add-on"><label for="Pseudo"><i class="icon-user"></i></label></span>
+                                        <input type="text" name="_username" id="Pseudo" placeholder="{{ 'base.userform.username.placeholder'|trans }}" required class="input-small" />
+                                    </div>
+                                    <div class="input-prepend inline">
+                                        <span class="add-on"><label for="MotDePasse"><i class="icon icon-lock"></i></label></span>
+                                        <input type="password" name="_password" id="MotDePasse" placeholder="{{ 'base.userform.password.placeholder'|trans }}" required class="input-small" />
+                                    </div>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="_remember_me" value="on" />
+                                        {{ 'base.userform.rememberme.label'|trans }}
+                                    </label>
+                                    <div class="btn-group inline">
+                                        <input type="hidden" name="_csrf_token" value="{% render controller('MrUserBundle:Security:getToken') %}" />
+                                        <input type="submit" name="_submit" value="{{ 'base.userform.submit'|trans }}" class="btn btn-primary" />
+                                        <a href="{{ path('fos_user_registration_register') }}" class="btn">Inscription</a>
+                                    </div>
+                                </form>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
